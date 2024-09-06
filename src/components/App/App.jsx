@@ -1,13 +1,17 @@
+import { useState } from "react";
+
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 
 function App() {
+  const [weatherData, setWeatherData] = useState({ type: "cold" });
+
   return (
     <div className="app">
       <div className="app_content">
         <Header />
-        <Main></Main>
+        <Main weatherData={weatherData} />
       </div>
     </div>
   );
