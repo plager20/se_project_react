@@ -7,7 +7,6 @@
 }
 
 .cards__text {
-  font-family: CabinetGrotesk;
   font-size: 20px;
   font-weight: 700;
   line-height: 24.8px;
@@ -17,7 +16,6 @@
 }
 
 .card__name {
-  font-family: CabinetGrotesk;
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
