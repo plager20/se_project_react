@@ -43,7 +43,7 @@
   top: 20px;
   right: 28px;
   background-image: url(../../images/close_btn.svg);
-  background-color: #fff;
+  background-color: transparent;
   width: 20px;
   height: 20px;
   background-repeat: no-repeat;

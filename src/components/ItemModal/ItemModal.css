@@ -1,0 +1,40 @@
+.modal__content_type_image {
+  padding: 0;
+  max-width: 498px;
+  border-radius: 16px;
+}
+
+.modal__close_type_image {
+  background-image: url(../../images/close_btn_preview.svg);
+  top: 26px;
+  right: 26px;
+}
+
+.modal__image {
+  width: 498px;
+  height: 498px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.modal__footer {
+  margin: 20px 0 32px 32px;
+}
+
+.modal__caption {
+  margin: 0 0 12px 0;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.modal__weather-type {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
