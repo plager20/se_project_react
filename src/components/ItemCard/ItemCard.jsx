@@ -1,4 +1,4 @@
-import "./ItemCard.css";
+import './ItemCard.css';
 
 function ItemCard({ item, onCardClick }) {
   const handleCardCLick = () => {
@@ -6,12 +6,12 @@ function ItemCard({ item, onCardClick }) {
   };
 
   return (
-    <li className="card">
-      <h2 className="card__name">{item.name}</h2>
+    <li className='card'>
+      <h2 className='card__name'>{item.name}</h2>
       <img
         onClick={handleCardCLick}
-        className="card__image"
-        src={item.link}
+        className='card__image'
+        src={item.imageUrl}
         alt={item.name}
       />
     </li>
