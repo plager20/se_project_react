@@ -11,7 +11,8 @@ import ItemModal from '../ItemModal/ItemModal';
 import { getWeather, filterWeatherData } from '../../utils/weatherApi';
 import { CurrentTemperatureUnitContext } from '../../contexts/CurrentTemperatureUnitContext';
 import AddItemModal from '../AddItemModal/AddItemModal';
-import { getItems } from '../../utils/api';
+import { getItems, postItems, deleteItems } from '../../utils/api';
+import DeleteModal from '../DeleteModal/DeleteModal';
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -32,14 +33,37 @@ function App() {
   const handleAddClick = () => {
     setActiveModal('add-garment');
   };
+
+  const handleDeleteClick = () => {
+    setActiveModal('delete');
+  };
+
   const closeActiveModal = () => {
     setActiveModal('');
   };
 
-  const onAddItem = (values) => {
-    e.preventDefault();
-    console.log(e);
-    console.log(values);
+  const onAddItem = (name, weather, link) => {
+    postItems({ name, weather, link })
+      .then(() => {
+        return getItems();
+      })
+      .then((data) => {
+        const lastElement = data.pop();
+        data.unshift(lastElement);
+        setClothingItems([...data]);
+      })
+      .catch(console.error);
+  };
+
+  const handleDeleteCard = (id) => {
+    deleteItems(id)
+      .then(() => {
+        return getItems();
+      })
+      .then((data) => {
+        setClothingItems([...data]);
+      })
+      .catch(console.error);
   };
 
   const handleToggleSwitchChange = () => {
@@ -59,7 +83,6 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        console.log(data);
         setClothingItems(data);
       })
       .catch(console.error);
@@ -106,6 +129,13 @@ function App() {
           activeModal={activeModal}
           card={selectedCard}
           onClose={closeActiveModal}
+          handleDeleteClick={handleDeleteClick}
+        />
+        <DeleteModal
+          activeModal={activeModal}
+          onClose={closeActiveModal}
+          handleDeleteCard={handleDeleteCard}
+          card={selectedCard}
         />
       </CurrentTemperatureUnitContext.Provider>
     </div>
