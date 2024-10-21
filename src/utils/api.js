@@ -46,4 +46,4 @@ async function deleteItems(id) {
   });
 }
 
-export { getItems, postItems, patchItems, putItems, deleteItems };
+export { getItems, postItems, patchItems, deleteItems };
