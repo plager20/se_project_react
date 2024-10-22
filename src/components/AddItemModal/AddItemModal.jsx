@@ -12,11 +12,13 @@ const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
 
   const handleUrlChange = (e) => {
     setUrl(e.target.value);
+    console.log(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onAddItem(name, weather, link);
+    closeActiveModal();
   };
 
   const handleWeatherChange = (e) => {
@@ -53,7 +55,6 @@ const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
           id='imageUrl'
           placeholder='Image URL'
           minLength='1'
-          maxLength='30'
           value={link}
           onChange={handleUrlChange}
         />
