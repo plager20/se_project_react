@@ -23,6 +23,7 @@
   border: none;
   background-color: transparent;
   color: #00000099;
+  cursor: pointer;
 }
 
 .clothes-section__list {
