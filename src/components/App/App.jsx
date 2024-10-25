@@ -52,19 +52,33 @@ function App() {
         data.unshift(lastElement);
         setClothingItems([...data]);
       })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(closeActiveModal);
   };
 
   const handleDeleteCard = (id) => {
     deleteItems(id)
       .then(() => {
-        return getItems();
+        // Remove the item from the state based on its id
+        setClothingItems((prevItems) =>
+          prevItems.filter((item) => item.id !== id)
+        );
       })
-      .then((data) => {
-        setClothingItems([...data]);
-      })
-      .catch(console.error);
+      .catch(console.error)
+      .finally(closeActiveModal);
   };
+
+  // const handleDeleteCard = (id) => {
+  //   deleteItems(id)
+  //     .then(() => {
+  //       return getItems();
+  //     })
+  //     .then((data) => {
+  //       setClothingItems([...data]);
+  //     })
+  //     .catch(console.error)
+  //     .finally(closeActiveModal);
+  // };
 
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === 'F') setCurrentTemperatureUnit('C');

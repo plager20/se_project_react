@@ -1,9 +1,14 @@
 const baseUrl = 'http://localhost:3001/';
 
+function checkResponse(res) {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Error: ${res.status}`);
+}
+
 async function getItems() {
-  return fetch(`${baseUrl}items`).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  });
+  return fetch(`${baseUrl}items`).then(checkResponse);
 }
 
 async function postItems(card) {
@@ -17,9 +22,7 @@ async function postItems(card) {
       weather: card.weather,
       imageUrl: card.link,
     }),
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  });
+  }).then(checkResponse);
 }
 
 async function patchItems(card, id) {
@@ -33,17 +36,13 @@ async function patchItems(card, id) {
       weather: card.weather,
       imageUrl: card.link,
     }),
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  });
+  }).then(checkResponse);
 }
 
 async function deleteItems(id) {
   return fetch(`${baseUrl}items/${id}`, {
     method: 'DELETE',
-  }).then((res) => {
-    return res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
-  });
+  }).then(checkResponse);
 }
 
 export { getItems, postItems, patchItems, deleteItems };
