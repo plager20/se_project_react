@@ -44,13 +44,8 @@ function App() {
 
   const onAddItem = (name, weather, link) => {
     postItems({ name, weather, link })
-      .then(() => {
-        return getItems();
-      })
-      .then((data) => {
-        const lastElement = data.pop();
-        data.unshift(lastElement);
-        setClothingItems([...data]);
+      .then((newItem) => {
+        setClothingItems((prevItems) => [newItem, ...prevItems]);
       })
       .catch(console.error)
       .finally(closeActiveModal);
@@ -59,26 +54,13 @@ function App() {
   const handleDeleteCard = (id) => {
     deleteItems(id)
       .then(() => {
-        // Remove the item from the state based on its id
         setClothingItems((prevItems) =>
-          prevItems.filter((item) => item.id !== id)
+          prevItems.filter((item) => item._id !== id)
         );
       })
       .catch(console.error)
       .finally(closeActiveModal);
   };
-
-  // const handleDeleteCard = (id) => {
-  //   deleteItems(id)
-  //     .then(() => {
-  //       return getItems();
-  //     })
-  //     .then((data) => {
-  //       setClothingItems([...data]);
-  //     })
-  //     .catch(console.error)
-  //     .finally(closeActiveModal);
-  // };
 
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === 'F') setCurrentTemperatureUnit('C');
