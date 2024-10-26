@@ -47,8 +47,8 @@ function App() {
       .then((newItem) => {
         setClothingItems((prevItems) => [newItem, ...prevItems]);
       })
-      .catch(console.error)
-      .finally(closeActiveModal);
+      .then(closeActiveModal)
+      .catch(console.error);
   };
 
   const handleDeleteCard = (id) => {
@@ -58,8 +58,8 @@ function App() {
           prevItems.filter((item) => item._id !== id)
         );
       })
-      .catch(console.error)
-      .finally(closeActiveModal);
+      .then(closeActiveModal)
+      .catch(console.error);
   };
 
   const handleToggleSwitchChange = () => {
