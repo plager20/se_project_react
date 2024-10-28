@@ -115,13 +115,11 @@ function App() {
           </Routes>
           <Footer />
         </div>
-        {activeModal === 'add-garment' && (
-          <AddItemModal
-            closeActiveModal={closeActiveModal}
-            isOpen={activeModal === 'add-garment'}
-            onAddItem={onAddItem}
-          />
-        )}
+        <AddItemModal
+          closeActiveModal={closeActiveModal}
+          isOpen={activeModal === 'add-garment'}
+          onAddItem={onAddItem}
+        />
         <ItemModal
           activeModal={activeModal}
           card={selectedCard}
