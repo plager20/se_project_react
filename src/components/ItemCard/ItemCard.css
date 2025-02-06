@@ -6,6 +6,10 @@
   justify-content: center;
 }
 
+.card:hover {
+  cursor: pointer;
+}
+
 .cards__text {
   font-size: 20px;
   font-weight: 700;
@@ -21,8 +25,6 @@
   line-height: 20px;
   margin: 0;
   padding: 2px 12px 2px 12px;
-  position: absolute;
-  top: 15px;
   background: #ffffff;
   border-radius: 4px;
 }
@@ -34,4 +36,30 @@
   height: 100%;
   border: 1px solid #0000004d;
   border-radius: 20px;
+}
+
+.card__title-container {
+  position: absolute;
+  top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  left: 0;
+  right: 0;
+  align-items: center;
+}
+
+.card__heart {
+  background-color: transparent;
+  background-image: url(../../images/card-heart.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 15px;
+  border: none;
+  width: 18px;
+  padding: 0;
+}
+
+.card__heart-liked {
+  background-image: url(../../images/card-heart_liked.svg);
 }

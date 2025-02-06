@@ -49,3 +49,26 @@
   height: 40px;
   border-radius: 50%;
 }
+
+.header__auth-buttons {
+  display: flex;
+  gap: 20px;
+  padding: 0 0 0 20px;
+  font-size: 20px;
+}
+
+.header__signup {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.header__login {
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 24px;
+}
