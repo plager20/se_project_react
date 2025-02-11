@@ -140,7 +140,7 @@ function App() {
 
     postItems({ name, weather, link }, token)
       .then((newItem) => {
-        setClothingItems((prevItems) => [newItem, ...prevItems]);
+        setClothingItems((prevItems) => [newItem.data, ...prevItems]);
       })
       .then(closeActiveModal)
       .catch(console.error);
@@ -280,11 +280,13 @@ function App() {
             closeActiveModal={closeActiveModal}
             isOpen={activeModal === 'register'}
             handleRegistration={handleRegistration}
+            handleLogInModal={handleLogInModal}
           />
           <LoginModal
             closeActiveModal={closeActiveModal}
             isOpen={activeModal === 'login'}
             handleLogIn={handleLogIn}
+            handleRegisterModal={handleRegisterModal}
           />
           <EditProfileModal
             onClose={closeActiveModal}

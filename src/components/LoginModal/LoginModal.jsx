@@ -1,9 +1,14 @@
 import { useState } from 'react';
 import ModalWithForm from '../ModalWithForm/ModalWithForm';
 
-function LoginModal({ closeActiveModal, isOpen, handleLogIn }) {
+function LoginModal({
+  closeActiveModal,
+  isOpen,
+  handleLogIn,
+  handleRegisterModal,
+}) {
   const [data, setData] = useState({
-    username: '',
+    email: '',
     password: '',
   });
 
@@ -41,7 +46,6 @@ function LoginModal({ closeActiveModal, isOpen, handleLogIn }) {
       isOpen={isOpen}
       onSubmit={handleSubmit}
       title='Log in'
-      buttonText='Log in'
     >
       <label htmlFor='login-email' className='modal__label'>
         Email
@@ -71,6 +75,18 @@ function LoginModal({ closeActiveModal, isOpen, handleLogIn }) {
           required
         />
       </label>
+      <div className='login_button-container'>
+        <button type='submit' className='modal__submit'>
+          Login
+        </button>
+        <button
+          className='modal__redirect-button'
+          type='button'
+          onClick={handleRegisterModal}
+        >
+          or Register
+        </button>
+      </div>
     </ModalWithForm>
   );
 }

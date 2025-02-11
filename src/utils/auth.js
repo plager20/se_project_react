@@ -1,9 +1,5 @@
 import { baseUrl } from './api';
-import { checkResponse } from './api';
-
-function request(url, options) {
-  return fetch(url, options).then(checkResponse);
-}
+import { request, checkResponse } from './api';
 
 const register = ({ email, password, name, avatar }) => {
   return request(`${baseUrl}signup`, {

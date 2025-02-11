@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 import ModalWithForm from '../ModalWithForm/ModalWithForm';
 
-function RegisterModal({ isOpen, closeActiveModal, handleRegistration }) {
+function RegisterModal({
+  isOpen,
+  closeActiveModal,
+  handleRegistration,
+  handleLogInModal,
+}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
@@ -111,6 +116,18 @@ function RegisterModal({ isOpen, closeActiveModal, handleRegistration }) {
           required
         />
       </label>
+      <div className='login_button-container'>
+        <button type='submit' className='modal__submit'>
+          Next
+        </button>
+        <button
+          className='modal__redirect-button'
+          type='button'
+          onClick={handleLogInModal}
+        >
+          or Log in
+        </button>
+      </div>
     </ModalWithForm>
   );
 }
