@@ -31,7 +31,6 @@ const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
       isOpen={isOpen}
       onSubmit={handleSubmit}
       title='New garment'
-      buttonText='Add garment'
     >
       <label htmlFor='name' className='modal__label'>
         Name
@@ -94,6 +93,9 @@ const AddItemModal = ({ closeActiveModal, onAddItem, isOpen }) => {
           Cold
         </label>
       </fieldset>
+      <button type='submit' className='modal__submit'>
+        Add Garment
+      </button>
     </ModalWithForm>
   );
 };
