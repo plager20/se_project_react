@@ -87,7 +87,7 @@ function RegisterModal({
           required
         />
       </label>
-      <label htmlFor='name' className='modal__label'>
+      <label htmlFor='register-name' className='modal__label'>
         Name
         <input
           type='text'
@@ -102,7 +102,7 @@ function RegisterModal({
           required
         />
       </label>
-      <label htmlFor='avatar' className='modal__label'>
+      <label htmlFor='register-avatar' className='modal__label'>
         Image
         <input
           type='url'
