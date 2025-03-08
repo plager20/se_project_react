@@ -1,6 +1,6 @@
 export const baseUrl =
   process.env.NODE_ENV === 'production'
-    ? 'https://api.plagerwtwr.crabdance.com/'
+    ? 'https://api.plagerwtwr.crabdance.com'
     : 'http://localhost:3001';
 
 export function checkResponse(res) {
@@ -15,11 +15,11 @@ export function request(url, options) {
 }
 
 async function getItems() {
-  return request(`${baseUrl}items`);
+  return request(`${baseUrl}/items`);
 }
 
 async function postItems(card, token) {
-  return request(`${baseUrl}items`, {
+  return request(`${baseUrl}/items`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ async function postItems(card, token) {
 }
 
 async function patchItems(card, id, token) {
-  return request(`${baseUrl}items/${id}`, {
+  return request(`${baseUrl}/items/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ async function patchItems(card, id, token) {
 }
 
 async function deleteItems(id, token) {
-  return request(`${baseUrl}items/${id}`, {
+  return request(`${baseUrl}/items/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ async function deleteItems(id, token) {
 }
 
 async function addCardLike(id, token) {
-  return request(`${baseUrl}items/${id}/likes`, {
+  return request(`${baseUrl}/items/${id}/likes`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',

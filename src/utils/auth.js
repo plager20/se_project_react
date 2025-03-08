@@ -2,7 +2,7 @@ import { baseUrl } from './api';
 import { request, checkResponse } from './api';
 
 const register = ({ email, password, name, avatar }) => {
-  return request(`${baseUrl}signup`, {
+  return request(`${baseUrl}/signup`, {
     method: 'POST',
     headers: {
       Accept: 'application/json',
@@ -13,7 +13,7 @@ const register = ({ email, password, name, avatar }) => {
 };
 
 const logIn = ({ email, password }) => {
-  return request(`${baseUrl}signin`, {
+  return request(`${baseUrl}/signin`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ const logIn = ({ email, password }) => {
 };
 
 const getUserInfo = (token) => {
-  return request(`${baseUrl}users/me`, {
+  return request(`${baseUrl}/users/me`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ const getUserInfo = (token) => {
 };
 
 const editUserInfo = ({ name, avatar }, token) => {
-  return request(`${baseUrl}users/me`, {
+  return request(`${baseUrl}/users/me`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
