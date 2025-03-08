@@ -1,6 +1,6 @@
 export const baseUrl =
   process.env.NODE_ENV === 'production'
-    ? 'https://api.plagerwtwr.crabdance.com'
+    ? 'https://api.plagerwtwr.crabdance.com/'
     : 'http://localhost:3001';
 
 export function checkResponse(res) {
