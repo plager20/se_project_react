@@ -69,7 +69,7 @@ async function addCardLike(id, token) {
 }
 
 async function removeCardLike(id, token) {
-  return request(`${baseUrl}items/${id}/likes`, {
+  return request(`${baseUrl}/items/${id}/likes`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
